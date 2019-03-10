@@ -61,18 +61,34 @@ public class MusicDriver {
 		grammar.put("pron", Arrays.asList(pron));
 		String[] end = {"her", "him", "you", "me"};
 		grammar.put("end", Arrays.asList(end));
-		String[] verb = {"kill", "shoot", "love", "know"};
+		String[] verb = {"move", "leave", "kill", "shoot", "love", "know", "stop"};
 		grammar.put("verb", Arrays.asList(verb));
-		String[] noun = {"baby", "love", "girl", "time", "crack", "cocaine", "alcohol"};
+		String[] before = {"can ", "can't ", "want to ", "won't ", " ", " ", " ", " "};
+		grammar.put("before", Arrays.asList(before));
+		String[] noun = {"baby", "love", "girl", "time", "crack", "cocaine", "alcohol", "partying"};
 		grammar.put("noun", Arrays.asList(noun));
 		String[] btwn = {"and", "because", "but", "so"};
 		grammar.put("btwn", Arrays.asList(btwn));
 		
 		for(int i = 0; i < 5; i++) {
-			System.out.println(getRandom(grammar.get("pron")) + " " + 
-					getRandom(grammar.get("verb")) + " " + getRandom(grammar.get("end")) + " " + getRandom(grammar.get("btwn")));
-			System.out.print(getRandom(grammar.get("pron")) + " " + 
-					getRandom(grammar.get("verb")) + " " + getRandom(grammar.get("noun")) + "\n");
+			String pronoun = getRandom(grammar.get("pron"));
+			String bef = getRandom(grammar.get("before"));
+			String s = "s";
+			if ((pronoun.equals("I") || pronoun.equals("you")) || !bef.equals(" ")) {
+				s = "";
+			}
+			System.out.println(pronoun + " " + bef  +
+					getRandom(grammar.get("verb")) + s + " " + getRandom(grammar.get("end")) + " " + getRandom(grammar.get("btwn")));
+			
+			pronoun = getRandom(grammar.get("pron"));
+			bef = getRandom(grammar.get("before"));
+			s = "s";
+			if ((pronoun.equals("I") || pronoun.equals("you")) || !bef.equals(" ")) {
+				s = "";
+			}
+			
+			System.out.print(pronoun + " " + bef + 
+					getRandom(grammar.get("verb")) + s + " " + getRandom(grammar.get("noun")) + "\n");
 		}
 	}
 	
